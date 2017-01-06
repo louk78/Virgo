@@ -1,2 +1,2 @@
 # Virgo
-You know
+Perfection is fantastic

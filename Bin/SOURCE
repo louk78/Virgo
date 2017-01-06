@@ -1,0 +1,4 @@
+TARGETNAME=Anti-BTA
+TARGETPATH=../Project
+TARGETTYPE=DRIVER
+SOURCES =../Src/v3/DriverEntry.cpp
