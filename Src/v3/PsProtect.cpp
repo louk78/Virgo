@@ -5,7 +5,7 @@ PVOID	RegistrationHandle	=	NULL;
 HANDLE	ProtectedProcess	=	NULL;
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-/*															  ½ø³Ì±£»¤                                                             */
+/*															  Â½Ã¸Â³ÃŒÂ±Â£Â»Â¤                                                             */
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 OB_PREOP_CALLBACK_STATUS 
 ObjectRegisterCallBack(PVOID RegistrationContext, POB_PRE_OPERATION_INFORMATION OperationInformation)
@@ -37,7 +37,7 @@ InstallProcessProtect()
     OperationRegistration.PreOperation = ObjectRegisterCallBack;
 	OperationRegistration.PostOperation	=	NULL;
 
-	RtlInitUnicodeString(&CallBackRegistration.Altitude, L"149831");
+	RtlInitUnicodeString(&CallBackRegistration.Altitude, L"140831");
     CallBackRegistration.Version = OB_FLT_REGISTRATION_VERSION;
     CallBackRegistration.OperationRegistrationCount = 1;
     CallBackRegistration.RegistrationContext = NULL;
