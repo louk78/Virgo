@@ -8,35 +8,35 @@
 		 
 															Author: Jin Liang
 				
-		1.ÎÄ¼ş¶ÁĞ´¹ıÂË
+		1.æ–‡ä»¶è¯»å†™è¿‡æ»¤
 
-		 HarddiskVolume2 -> EÅÌ: ½ûÖ¹Ö»¶ÁÊôĞÔÎÄ¼şÉ¾³ı²Ù×÷
+		 HarddiskVolume2 -> Eç›˜: ç¦æ­¢åªè¯»å±æ€§æ–‡ä»¶åˆ é™¤æ“ä½œ
 
-		 HarddiskVolume3 -> FÅÌ: ¾Ü¾ø¶Ô "\±£»¤Ä¿Â¼" µÄ·ÃÎÊ
-								 ½ûÖ¹·ÇExplorer½ø³ÌÊ÷ËùÓĞ²Ù×÷
-								 ½ûÖ¹·ÇExplorer½ø³Ì´´½¨²Ù×÷
-								 ½ûÖ¹ËùÓĞĞŞ¸Ä²Ù×÷
-								 ±£»¤Ä¿Â¼Í¸Ã÷¼ÓÃÜ
+		 HarddiskVolume3 -> Fç›˜: æ‹’ç»å¯¹ "\ä¿æŠ¤ç›®å½•" çš„è®¿é—®
+								 ç¦æ­¢éExplorerè¿›ç¨‹æ ‘æ‰€æœ‰æ“ä½œ
+								 ç¦æ­¢éExplorerè¿›ç¨‹åˆ›å»ºæ“ä½œ
+								 ç¦æ­¢æ‰€æœ‰ä¿®æ”¹æ“ä½œ
+								 ä¿æŠ¤ç›®å½•é€æ˜åŠ å¯†
 					   
-		 2.Ä£¿é¼ÓÔØÀ¹½Ø
+		 2.æ¨¡å—åŠ è½½æ‹¦æˆª
   
-			Ö´ĞĞÎÄ¼ş: ºÚÃûµ¥Ç©Ãû£º(Tencent, Baidu, Ava)		À¹½Ø
-            °×Ãûµ¥Ä£¿é£º(WebChat, QQ)						·ÅĞĞ
-			Çı¶¯ÎÄ¼ş: (×ªÒÆµ½×¢²á±í¼à¿Ø)
+			æ‰§è¡Œæ–‡ä»¶: é»‘åå•ç­¾åï¼š(Tencent, Baidu, Ava)		æ‹¦æˆª
+            ç™½åå•æ¨¡å—ï¼š(WebChat, QQ)						æ”¾è¡Œ
+			é©±åŠ¨æ–‡ä»¶: (è½¬ç§»åˆ°æ³¨å†Œè¡¨ç›‘æ§)
 
-		3.×¢²á±í¼à¿Ø
+		3.æ³¨å†Œè¡¨ç›‘æ§
    
-			Æô¶¯Ïî: 
-				½ûÖ¹´´½¨:
+			å¯åŠ¨é¡¹: 
+				ç¦æ­¢åˆ›å»º:
 						1.HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Run
 						2.HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Run
 						3.HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Run
 
-			·şÎñÏî:
-				À¹½Ø:
+			æœåŠ¡é¡¹:
+				æ‹¦æˆª:
 					1.HKEY_LOCAL_MACHINE\SYSTEM\ControlSet\services\;	Boot Type: Auto
 
-		Minifiliter:	ºÜ²ÑÀ¢£¬ÎÒÖ»ÊÇ×öÁËÒ»µãÎ¢Ğ¡µÄ¹¤×÷¡£
+		Minifiliter:	å¾ˆæƒ­æ„§ï¼Œæˆ‘åªæ˜¯åšäº†ä¸€ç‚¹å¾®å°çš„å·¥ä½œã€‚
 
 ************************************************************************************************************************************/
 
@@ -50,25 +50,25 @@ NTSTATUS DriverEntry(PDRIVER_OBJECT DriverObject, PUNICODE_STRING RegistryPath)
 	DriverObject->DriverUnload = DriverUnload;
 	#endif
 
-	/*¿ªÆô´ÅÅÌ±£»¤*/
+	/*å¼€å¯ç£ç›˜ä¿æŠ¤*/
 
 	InstallDiskProtect(DriverObject);
 	
 	DbgPrint("[Anti-BTA] fsProtect Installed!\n");
 
-	/*¿ªÆôÄ£¿éĞÅÈÎ¼ì²é*/
+	/*å¼€å¯æ¨¡å—ä¿¡ä»»æ£€æŸ¥*/
 
 	InstallModuleFiliter();
 	
 	DbgPrint("[Anti-BTA] PsMonitor Installed!\n");
 
-	/*¿ªÆô×¢²á±í¼à¿Ø*/
+	/*å¼€å¯æ³¨å†Œè¡¨ç›‘æ§*/
 
-	InstallRegMonitor();
+	InstallRegMonitor(DriverObject);
 
 	DbgPrint("[Anti-BTA] CmpRegister Installed!\n");
 
-	/*¿ªÆô½ø³Ì±£»¤*/
+	/*å¼€å¯è¿›ç¨‹ä¿æŠ¤*/
 
 	InstallProcessProtect();
 
