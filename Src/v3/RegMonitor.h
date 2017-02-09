@@ -14,5 +14,5 @@
 
 
 NTSTATUS	CmpRegCallBack(IN PVOID CallbackContext, IN PVOID Argument1, IN PVOID Argument2);
-NTSTATUS	InstallRegMonitor(IN PDRIVER_OBJECT DriverObject);
+NTSTATUS	InstallRegMonitor();
 VOID		UnInstallRegMonitor();
