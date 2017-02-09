@@ -64,7 +64,7 @@ NTSTATUS DriverEntry(PDRIVER_OBJECT DriverObject, PUNICODE_STRING RegistryPath)
 
 	/*开启注册表监控*/
 
-	InstallRegMonitor(DriverObject);
+	InstallRegMonitor();
 
 	DbgPrint("[Anti-BTA] CmpRegister Installed!\n");
 
